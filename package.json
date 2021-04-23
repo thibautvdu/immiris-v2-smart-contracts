@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy.ts",
+    "generate-types": "typechain --target=ethers-v5 artifacts/contracts/**/*[!(dbg)].json",
+    "verify": "npx hardhat verify",
+    "test": "npx hardhat test",
+    "console": "npx hardhat console",
+    "localchain": "npx hardhat node",
+    "evaluate-gas": "npx hardhat run scripts/evaluateGas.ts"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +29,12 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
+    "@nomiclabs/hardhat-etherscan": "^2.1.1",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
-    "ethereum-waffle": "^3.3.0"
+    "@typechain/ethers-v5": "^6.0.5",
+    "@types/dotenv": "^8.2.0",
+    "dotenv": "^8.2.0",
+    "ethereum-waffle": "^3.3.0",
+    "typechain": "^4.0.3"
   }
 }
